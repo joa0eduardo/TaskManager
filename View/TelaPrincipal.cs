@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Controller;
+using Model;
 
 namespace View
 {
@@ -28,6 +30,18 @@ namespace View
                 frmTelaLogin.Close();
             }
 
+        }
+
+        private void menuSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void menuCadUsuario_Click(object sender, EventArgs e)
+        {
+            FrmUsuarioSelecao frmUsuarioSelecao = new FrmUsuarioSelecao();
+
+            frmUsuarioSelecao.Show();
         }
     }
 }

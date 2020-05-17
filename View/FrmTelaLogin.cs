@@ -22,6 +22,7 @@ namespace View
         private void btAcesso_Click(object sender, EventArgs e)
         {
             Usuario usuario = new Usuario();
+            UsuarioColecao usuarioColecao = new UsuarioColecao();
 
             usuario.LoginUsuario = TxtUsuario.Text;
             usuario.SenhaUsuario = txtSenha.Text;

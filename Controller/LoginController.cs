@@ -29,5 +29,36 @@ namespace Controller
                 return ex.Message;
             }
         }
+
+        public UsuarioColecao DadosUsuarioLogado (string login)
+        {
+            try
+            {
+                UsuarioColecao usuarioColecao = new UsuarioColecao();
+
+                sqlServer.LimparParametros();
+                sqlServer.AdicionarParametros("@USU_Login", login);
+
+                DataTable dataTableUsuarioLogado = sqlServer.ExecutarConsulta(CommandType.StoredProcedure, "USUARIO_LOGADO_CONSULTAR");
+
+                foreach (DataRow linha in dataTableUsuarioLogado.Rows)
+                {
+                    Usuario usuario = new Usuario();
+
+                    usuario.IdUsuario = Convert.ToInt32(linha["USU_Tid"]);
+                    usuario.NomeUsuario = Convert.ToString(linha["USU_Nome"]);
+                    usuario.LoginUsuario = Convert.ToString(linha["USU_Login"]);
+                    usuario.AmbienteAdmUsuario = Convert.ToBoolean(linha["USU_AmbienteAdministrativo"]);
+
+                    usuarioColecao.Add(usuario);
+                }
+
+                return usuarioColecao;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível verificar os dados do usuário. Detalhes: " + ex.Message);
+            }
+        }
     }
 }
