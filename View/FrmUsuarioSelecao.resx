@@ -123,6 +123,10 @@
   <data name="Codigo.HeaderText" xml:space="preserve">
     <value>Código</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Codigo.Width" type="System.Int32, mscorlib">
+    <value>65</value>
+  </data>
   <metadata name="Nome.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -143,12 +147,11 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="dataGridUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 108</value>
+    <value>12, 121</value>
   </data>
   <data name="dataGridUsuario.Size" type="System.Drawing.Size, System.Drawing">
     <value>662, 181</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="dataGridUsuario.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -162,10 +165,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dataGridUsuario.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>10</value>
   </data>
   <data name="btnPesquisar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 78</value>
+    <value>12, 91</value>
   </data>
   <data name="btnPesquisar.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -186,7 +189,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnPesquisar.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>9</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -213,7 +216,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>8</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -240,7 +243,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>7</value>
   </data>
   <data name="txtCodigo.Location" type="System.Drawing.Point, System.Drawing">
     <value>62, 18</value>
@@ -261,7 +264,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtCodigo.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>6</value>
   </data>
   <data name="txtNome.Location" type="System.Drawing.Point, System.Drawing">
     <value>62, 48</value>
@@ -282,7 +285,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtNome.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>5</value>
   </data>
   <data name="chkAtivo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -309,6 +312,115 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chkAtivo.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btInserir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btInserir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 91</value>
+  </data>
+  <data name="btInserir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btInserir.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btInserir.Text" xml:space="preserve">
+    <value>Inserir</value>
+  </data>
+  <data name="&gt;&gt;btInserir.Name" xml:space="preserve">
+    <value>btInserir</value>
+  </data>
+  <data name="&gt;&gt;btInserir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btInserir.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btInserir.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btFechar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btFechar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>599, 308</value>
+  </data>
+  <data name="btFechar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btFechar.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btFechar.Text" xml:space="preserve">
+    <value>Fechar</value>
+  </data>
+  <data name="&gt;&gt;btFechar.Name" xml:space="preserve">
+    <value>btFechar</value>
+  </data>
+  <data name="&gt;&gt;btFechar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btFechar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btFechar.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btConsultar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btConsultar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>518, 308</value>
+  </data>
+  <data name="btConsultar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btConsultar.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btConsultar.Text" xml:space="preserve">
+    <value>Consultar</value>
+  </data>
+  <data name="&gt;&gt;btConsultar.Name" xml:space="preserve">
+    <value>btConsultar</value>
+  </data>
+  <data name="&gt;&gt;btConsultar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btConsultar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btConsultar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btAlterar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btAlterar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>437, 308</value>
+  </data>
+  <data name="btAlterar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btAlterar.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btAlterar.Text" xml:space="preserve">
+    <value>Alterar</value>
+  </data>
+  <data name="&gt;&gt;btAlterar.Name" xml:space="preserve">
+    <value>btAlterar</value>
+  </data>
+  <data name="&gt;&gt;btAlterar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btAlterar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btAlterar.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -323,7 +435,6 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>686, 346</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -346,13 +457,13 @@
     <value>Ativo</value>
   </data>
   <data name="&gt;&gt;Ativo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;AcessoAdm.Name" xml:space="preserve">
     <value>AcessoAdm</value>
   </data>
   <data name="&gt;&gt;AcessoAdm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmUsuarioSelecao</value>

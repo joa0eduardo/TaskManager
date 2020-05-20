@@ -38,13 +38,18 @@
             this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AcessoAdm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ativo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.AcessoAdm = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btInserir = new System.Windows.Forms.Button();
+            this.btFechar = new System.Windows.Forms.Button();
+            this.btConsultar = new System.Windows.Forms.Button();
+            this.btAlterar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridUsuario
             // 
+            this.dataGridUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridUsuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
@@ -52,8 +57,10 @@
             this.Ativo,
             this.AcessoAdm});
             resources.ApplyResources(this.dataGridUsuario, "dataGridUsuario");
+            this.dataGridUsuario.MultiSelect = false;
             this.dataGridUsuario.Name = "dataGridUsuario";
             this.dataGridUsuario.ReadOnly = true;
+            this.dataGridUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             // 
             // btnPesquisar
             // 
@@ -92,7 +99,8 @@
             // 
             // Codigo
             // 
-            this.Codigo.DataPropertyName = "Usuario.IdUsuario";
+            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Codigo.DataPropertyName = "IdUsuario";
             this.Codigo.Frozen = true;
             resources.ApplyResources(this.Codigo, "Codigo");
             this.Codigo.Name = "Codigo";
@@ -100,31 +108,68 @@
             // 
             // Nome
             // 
-            this.Nome.DataPropertyName = "Usuario.nomeUsuario";
-            this.Nome.Frozen = true;
+            this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nome.DataPropertyName = "NomeUsuario";
             resources.ApplyResources(this.Nome, "Nome");
             this.Nome.Name = "Nome";
             this.Nome.ReadOnly = true;
             // 
             // Ativo
             // 
-            this.Ativo.DataPropertyName = "Usuario.AtivoUsuario";
-            this.Ativo.Frozen = true;
+            this.Ativo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ativo.DataPropertyName = "AtivoUsuario";
             resources.ApplyResources(this.Ativo, "Ativo");
             this.Ativo.Name = "Ativo";
             this.Ativo.ReadOnly = true;
+            this.Ativo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Ativo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // AcessoAdm
             // 
-            this.AcessoAdm.Frozen = true;
+            this.AcessoAdm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AcessoAdm.DataPropertyName = "AmbienteAdmUsuario";
             resources.ApplyResources(this.AcessoAdm, "AcessoAdm");
             this.AcessoAdm.Name = "AcessoAdm";
             this.AcessoAdm.ReadOnly = true;
+            this.AcessoAdm.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.AcessoAdm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // btInserir
+            // 
+            resources.ApplyResources(this.btInserir, "btInserir");
+            this.btInserir.Name = "btInserir";
+            this.btInserir.UseVisualStyleBackColor = true;
+            this.btInserir.Click += new System.EventHandler(this.btInserir_Click);
+            // 
+            // btFechar
+            // 
+            resources.ApplyResources(this.btFechar, "btFechar");
+            this.btFechar.Name = "btFechar";
+            this.btFechar.UseVisualStyleBackColor = true;
+            this.btFechar.Click += new System.EventHandler(this.btFechar_Click);
+            // 
+            // btConsultar
+            // 
+            resources.ApplyResources(this.btConsultar, "btConsultar");
+            this.btConsultar.Name = "btConsultar";
+            this.btConsultar.UseVisualStyleBackColor = true;
+            this.btConsultar.Click += new System.EventHandler(this.btConsultar_Click);
+            // 
+            // btAlterar
+            // 
+            resources.ApplyResources(this.btAlterar, "btAlterar");
+            this.btAlterar.Name = "btAlterar";
+            this.btAlterar.UseVisualStyleBackColor = true;
+            this.btAlterar.Click += new System.EventHandler(this.btAlterar_Click);
             // 
             // FrmUsuarioSelecao
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btAlterar);
+            this.Controls.Add(this.btConsultar);
+            this.Controls.Add(this.btFechar);
+            this.Controls.Add(this.btInserir);
             this.Controls.Add(this.chkAtivo);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtCodigo);
@@ -154,7 +199,11 @@
         private System.Windows.Forms.CheckBox chkAtivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ativo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AcessoAdm;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Ativo;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn AcessoAdm;
+        private System.Windows.Forms.Button btInserir;
+        private System.Windows.Forms.Button btFechar;
+        private System.Windows.Forms.Button btConsultar;
+        private System.Windows.Forms.Button btAlterar;
     }
 }

@@ -43,7 +43,7 @@ namespace Controller
                 sQLServer.AdicionarParametros("@USU_Senha", usuario.SenhaUsuario);
                 sQLServer.AdicionarParametros("@USU_Ativo", usuario.AtivoUsuario);
                 sQLServer.AdicionarParametros("@USU_AmbienteAdministrativo", usuario.AmbienteAdmUsuario);
-                string IdUsuario = sQLServer.ExecutarManipulacao(CommandType.StoredProcedure, "USUARIO_INSERIR").ToString();
+                string IdUsuario = sQLServer.ExecutarManipulacao(CommandType.StoredProcedure, "USUARIO_ALTERAR").ToString();
                 return IdUsuario;
             }
             catch (Exception ex)
@@ -53,7 +53,7 @@ namespace Controller
             }
         }
 
-        public UsuarioColecao GridConsultar(int id, string usuario, bool ativo )
+        public UsuarioColecao GridConsultar(string id, string usuario, bool ativo )
         {
             try
             {
@@ -61,8 +61,15 @@ namespace Controller
                 UsuarioColecao usuarioColecao = new UsuarioColecao();
 
                 sQLServer.LimparParametros();
-                sQLServer.AdicionarParametros("@USU_Tid", id);
-                sQLServer.AdicionarParametros("@USU_Nome", usuario);
+                if (String.IsNullOrEmpty(id) == false)
+                {
+                    sQLServer.AdicionarParametros("@USU_Tid", id);
+                }
+
+                if (String.IsNullOrEmpty(usuario) == false)
+                {
+                    sQLServer.AdicionarParametros("@USU_Nome", usuario);
+                }
                 sQLServer.AdicionarParametros("@USU_Ativo", ativo);
 
                 DataTable dataTableUsuario = sQLServer.ExecutarConsulta(CommandType.StoredProcedure, "USUARIO_GRID_CONSULTAR");
@@ -73,6 +80,7 @@ namespace Controller
 
                     usu.IdUsuario = Convert.ToInt32(linha["USU_Tid"]);
                     usu.NomeUsuario = Convert.ToString(linha["USU_Nome"]);
+                    usu.LoginUsuario = Convert.ToString(linha["USU_Login"]);
                     usu.AtivoUsuario = Convert.ToBoolean(linha["USU_Ativo"]);
                     usu.AmbienteAdmUsuario = Convert.ToBoolean(linha["USU_AmbienteAdministrativo"]);
 

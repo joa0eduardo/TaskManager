@@ -46,11 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enumerador.cs" />
     <Compile Include="FrmTelaLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmTelaLogin.Designer.cs">
       <DependentUpon>FrmTelaLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsuarioCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuarioCadastro.Designer.cs">
+      <DependentUpon>FrmUsuarioCadastro.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUsuarioSelecao.cs">
       <SubType>Form</SubType>
@@ -73,6 +80,9 @@
     </Compile>
     <EmbeddedResource Include="FrmTelaLogin.resx">
       <DependentUpon>FrmTelaLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuarioCadastro.resx">
+      <DependentUpon>FrmUsuarioCadastro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarioSelecao.resx">
       <DependentUpon>FrmUsuarioSelecao.cs</DependentUpon>
