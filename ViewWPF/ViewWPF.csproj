@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{68F4E987-A664-44A4-AD92-4D9463EA3151}</ProjectGuid>
+    <ProjectGuid>{97F2B3EC-A4F3-406A-B937-526FD39FBE0A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ViewWPF</RootNamespace>
     <AssemblyName>ViewWPF</AssemblyName>
@@ -55,11 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="TaskManagerDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TaskManagerDataSet.xsd</DependentUpon>
-    </Compile>
+    <Page Include="FrmTelaLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +66,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FrmTelaLogin.xaml.cs">
+      <DependentUpon>FrmTelaLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -94,17 +96,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="TaskManagerDataSet.xsc">
-      <DependentUpon>TaskManagerDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="TaskManagerDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TaskManagerDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="TaskManagerDataSet.xss">
-      <DependentUpon>TaskManagerDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

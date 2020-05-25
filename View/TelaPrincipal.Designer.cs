@@ -43,10 +43,15 @@
             this.menuCadUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.relatórioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSair = new System.Windows.Forms.ToolStripMenuItem();
+            this.gRUPOATIVIDADEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gRUPO_ATIVIDADETableAdapter = new View.TaskManagerDataSetTableAdapters.GRUPO_ATIVIDADETableAdapter();
+            this.opcaoUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.opcaoPerfil = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.taskManagerDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taskManagerDataSetBindingSource)).BeginInit();
             this.barraStatusPrincipal.SuspendLayout();
             this.menuPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gRUPOATIVIDADEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // taskManagerDataSet
@@ -125,10 +130,12 @@
             // 
             // menuCadUsuario
             // 
+            this.menuCadUsuario.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.opcaoUsuario,
+            this.opcaoPerfil});
             this.menuCadUsuario.Name = "menuCadUsuario";
             this.menuCadUsuario.Size = new System.Drawing.Size(180, 22);
             this.menuCadUsuario.Text = "Usuário";
-            this.menuCadUsuario.Click += new System.EventHandler(this.menuCadUsuario_Click);
             // 
             // relatórioToolStripMenuItem
             // 
@@ -142,6 +149,28 @@
             this.menuSair.Size = new System.Drawing.Size(38, 20);
             this.menuSair.Text = "Sair";
             this.menuSair.Click += new System.EventHandler(this.menuSair_Click);
+            // 
+            // gRUPOATIVIDADEBindingSource
+            // 
+            this.gRUPOATIVIDADEBindingSource.DataMember = "GRUPO_ATIVIDADE";
+            this.gRUPOATIVIDADEBindingSource.DataSource = this.taskManagerDataSetBindingSource;
+            // 
+            // gRUPO_ATIVIDADETableAdapter
+            // 
+            this.gRUPO_ATIVIDADETableAdapter.ClearBeforeFill = true;
+            // 
+            // opcaoUsuario
+            // 
+            this.opcaoUsuario.Name = "opcaoUsuario";
+            this.opcaoUsuario.Size = new System.Drawing.Size(180, 22);
+            this.opcaoUsuario.Text = "Usuário";
+            this.opcaoUsuario.Click += new System.EventHandler(this.opcaoUsuario_Click);
+            // 
+            // opcaoPerfil
+            // 
+            this.opcaoPerfil.Name = "opcaoPerfil";
+            this.opcaoPerfil.Size = new System.Drawing.Size(180, 22);
+            this.opcaoPerfil.Text = "Perfil";
             // 
             // FrmTelaPrincipal
             // 
@@ -164,6 +193,7 @@
             this.barraStatusPrincipal.PerformLayout();
             this.menuPrincipal.ResumeLayout(false);
             this.menuPrincipal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gRUPOATIVIDADEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,5 +213,9 @@
         private System.Windows.Forms.ToolStripMenuItem menuCadGrupo;
         private System.Windows.Forms.ToolStripMenuItem menuCadTipoAtividade;
         private System.Windows.Forms.ToolStripMenuItem menuCadUsuario;
+        private System.Windows.Forms.BindingSource gRUPOATIVIDADEBindingSource;
+        private TaskManagerDataSetTableAdapters.GRUPO_ATIVIDADETableAdapter gRUPO_ATIVIDADETableAdapter;
+        private System.Windows.Forms.ToolStripMenuItem opcaoUsuario;
+        private System.Windows.Forms.ToolStripMenuItem opcaoPerfil;
     }
 }

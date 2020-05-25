@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Model;
+using Controller;
 
 namespace ViewWPF
 {
@@ -23,6 +25,25 @@ namespace ViewWPF
         public MainWindow()
         {
             InitializeComponent();
+
+            FrmTelaLogin frmTelaLogin = new FrmTelaLogin();
+
+            bool? dialogResult = frmTelaLogin.ShowDialog();
+
+            if (dialogResult == true)
+            {
+                frmTelaLogin.Close();
+
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

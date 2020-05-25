@@ -21,6 +21,8 @@ namespace View
 
         private void FrmTelaPrincipal_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'taskManagerDataSet.GRUPO_ATIVIDADE'. Você pode movê-la ou removê-la conforme necessário.
+            this.gRUPO_ATIVIDADETableAdapter.Fill(this.taskManagerDataSet.GRUPO_ATIVIDADE);
             FrmTelaLogin frmTelaLogin = new FrmTelaLogin();
 
             DialogResult dialogResult = frmTelaLogin.ShowDialog();
@@ -37,7 +39,7 @@ namespace View
             Application.Exit();
         }
 
-        private void menuCadUsuario_Click(object sender, EventArgs e)
+        private void opcaoUsuario_Click(object sender, EventArgs e)
         {
             FrmUsuarioSelecao frmUsuarioSelecao = new FrmUsuarioSelecao();
 
