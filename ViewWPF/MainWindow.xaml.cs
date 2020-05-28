@@ -25,7 +25,7 @@ namespace ViewWPF
         public MainWindow()
         {
             InitializeComponent();
-
+            /*  COMENTADO PARA NÃO PEDIR LOGIN POR ENQUANTO
             FrmTelaLogin frmTelaLogin = new FrmTelaLogin();
 
             bool? dialogResult = frmTelaLogin.ShowDialog();
@@ -38,12 +38,26 @@ namespace ViewWPF
             else
             {
                 this.Close();
-            }
+            }*/
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
+        private void MenuItemUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            FrmUsuarioSelecao frmUsuarioSelecao = new FrmUsuarioSelecao();
+
+            bool? dialogResult = frmUsuarioSelecao.ShowDialog();
+
+            if (dialogResult == true)
+            {
+                frmUsuarioSelecao.Close();
+            }
+        }
+
+
     }
 }

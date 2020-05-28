@@ -15,7 +15,7 @@
         <Menu HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="994">
             <MenuItem Header="Cadastro" Height="31">
                 <MenuItem Header="Usuário">
-                    <MenuItem Header="Usuário"/>
+                    <MenuItem Header="Usuário" Click="MenuItemUsuario_Click"/>
                     <MenuItem Header="Perfil"/>
                 </MenuItem>
             </MenuItem>
