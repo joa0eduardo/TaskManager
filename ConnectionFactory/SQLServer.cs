@@ -103,7 +103,7 @@ namespace ConnectionFactory
             }
         }
 
-        public DataTable BuscarDados(CommandType commandType, string StoredProcedureOrSQLText)
+        public DataSet BuscarDados(CommandType commandType, string StoredProcedureOrSQLText)
         {
             try
             {
@@ -126,11 +126,11 @@ namespace ConnectionFactory
 
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
 
-                DataTable dataTable = new DataTable();
+                DataSet dataSet = new DataSet();
 
-                sqlDataAdapter.Fill(dataTable);
+                sqlDataAdapter.Fill(dataSet);
 
-                return dataTable;
+                return dataSet;
 
 
             }

@@ -13,6 +13,6 @@ namespace Model
         public string LoginUsuario { get; set; }
         public string SenhaUsuario { get; set; }
         public bool AtivoUsuario { get; set; }
-        public bool AmbienteAdmUsuario { get; set; }
+        public PerfilUsuario PerfilUsuario { get; set; }
     }
 }

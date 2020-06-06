@@ -58,5 +58,17 @@ namespace ViewWPF
 
             dataGridUsuario.ItemsSource = null;
         }
+
+        private void BtInserir_Click(object sender, RoutedEventArgs e)
+        {
+            FrmUsuarioCadastro frmUsuarioCadastro = new FrmUsuarioCadastro(Enumerador.Inserir, null);
+
+            bool? dialogResult = frmUsuarioCadastro.ShowDialog();
+
+            if (dialogResult == true)
+            {
+                AtualizarGrid();
+            }
+        }
     }
 }

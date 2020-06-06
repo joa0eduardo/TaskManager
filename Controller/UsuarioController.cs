@@ -22,7 +22,7 @@ namespace Controller
                 sQLServer.AdicionarParametros("@USU_Login", usuario.LoginUsuario);
                 sQLServer.AdicionarParametros("@USU_Senha", usuario.SenhaUsuario);
                 sQLServer.AdicionarParametros("@USU_Ativo", usuario.AtivoUsuario);
-                sQLServer.AdicionarParametros("@USU_AmbienteAdministrativo", usuario.AmbienteAdmUsuario);
+                sQLServer.AdicionarParametros("@USU_PFU_TidPerfilUsuario", usuario.PerfilUsuario.IdPerfilUsuario);
                 string IdUsuario = sQLServer.ExecutarManipulacao(CommandType.StoredProcedure, "USUARIO_INSERIR").ToString();
                 return IdUsuario;
             }
@@ -34,6 +34,7 @@ namespace Controller
 
         public string Alterar(Usuario usuario)
         {
+            PerfilUsuario perfilUsuario = new PerfilUsuario();
             try
             {
                 sQLServer.LimparParametros();
@@ -42,7 +43,7 @@ namespace Controller
                 sQLServer.AdicionarParametros("@USU_Login", usuario.LoginUsuario);
                 sQLServer.AdicionarParametros("@USU_Senha", usuario.SenhaUsuario);
                 sQLServer.AdicionarParametros("@USU_Ativo", usuario.AtivoUsuario);
-                sQLServer.AdicionarParametros("@USU_AmbienteAdministrativo", usuario.AmbienteAdmUsuario);
+                sQLServer.AdicionarParametros("@USU_PFU_TidUsuarioPerfil", usuario.PerfilUsuario.IdPerfilUsuario);
                 string IdUsuario = sQLServer.ExecutarManipulacao(CommandType.StoredProcedure, "USUARIO_ALTERAR").ToString();
                 return IdUsuario;
             }
@@ -82,7 +83,7 @@ namespace Controller
                     usu.NomeUsuario = Convert.ToString(linha["USU_Nome"]);
                     usu.LoginUsuario = Convert.ToString(linha["USU_Login"]);
                     usu.AtivoUsuario = Convert.ToBoolean(linha["USU_Ativo"]);
-                    usu.AmbienteAdmUsuario = Convert.ToBoolean(linha["USU_AmbienteAdministrativo"]);
+                    usu.PerfilUsuario.IdPerfilUsuario = Convert.ToString(linha["PFU_Nome"]); //FALTA ARRUMAR
 
                     usuarioColecao.Add(usu);
                 }

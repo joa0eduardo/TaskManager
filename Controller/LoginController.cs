@@ -48,7 +48,6 @@ namespace Controller
                     usuario.IdUsuario = Convert.ToInt32(linha["USU_Tid"]);
                     usuario.NomeUsuario = Convert.ToString(linha["USU_Nome"]);
                     usuario.LoginUsuario = Convert.ToString(linha["USU_Login"]);
-                    usuario.AmbienteAdmUsuario = Convert.ToBoolean(linha["USU_AmbienteAdministrativo"]);
 
                     usuarioColecao.Add(usuario);
                 }

@@ -15,12 +15,13 @@
         <DataGrid x:Name="dataGridUsuario" HorizontalAlignment="Left" Height="247" Margin="10,133,0,0" VerticalAlignment="Top" Width="774" SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding IdUsuario}" Header="Código" Width="100" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding NomeUsuario}" Header="Nome" Width="600" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding NomeUsuario}" Header="Nome" Width="500" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding PerfilUsuario.NomePerfilUsuario}" Header="Perfil" Width="100" IsReadOnly="True"/>
                 <DataGridCheckBoxColumn Binding="{Binding AtivoUsuario}" Header="Ativo" Width="60" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btPesquisar" Content="Pesquisar" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" Width="75" Click="BtPesquisar_Click"/>
-        <Button x:Name="btInserir" Content="Inserir" HorizontalAlignment="Left" Margin="709,108,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btInserir" Content="Inserir" HorizontalAlignment="Left" Margin="709,108,0,0" VerticalAlignment="Top" Width="75" Click="BtInserir_Click"/>
         <Button x:Name="btFechar" Content="Fechar" HorizontalAlignment="Left" Margin="709,391,0,0" VerticalAlignment="Top" Width="75" Click="BtFechar_Click"/>
         <Button x:Name="btLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="90,108,0,0" VerticalAlignment="Top" Width="75" Click="BtLimpar_Click"/>
 

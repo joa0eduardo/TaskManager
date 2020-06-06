@@ -21,5 +21,7 @@
             </MenuItem>
             <MenuItem Header="Sair" Click="MenuItem_Click"/>
         </Menu>
+        <GroupBox Header="Tempo Total DD/MM/AAAA" HorizontalAlignment="Left" Height="100" Margin="758,36,0,0" VerticalAlignment="Top" Width="170"/>
+        <Label Content="00:00" HorizontalAlignment="Left" Margin="784,56,0,0" VerticalAlignment="Top" FontSize="45"/>
     </Grid>
 </Window>

@@ -35,7 +35,6 @@ namespace View
                 this.txtNome.Text = usuario.NomeUsuario.ToString();
                 this.txtUsuario.Text = usuario.LoginUsuario;
                 this.chkAtivo.Checked = usuario.AtivoUsuario;
-                this.chkAdm.Checked = usuario.AmbienteAdmUsuario;
 
                 txtUsuario.Enabled = false;
             }
@@ -46,13 +45,11 @@ namespace View
                 this.txtNome.Text = usuario.NomeUsuario.ToString();
                 this.txtUsuario.Text = usuario.LoginUsuario.ToString();
                 this.chkAtivo.Checked = usuario.AtivoUsuario;
-                this.chkAdm.Checked = usuario.AmbienteAdmUsuario;
 
                 txtUsuario.Enabled = false;
                 txtNome.Enabled = false;
                 txtSenha.Enabled = false;
                 chkAtivo.Enabled = false;
-                chkAdm.Enabled = false;
                 btSalvar.Visible = false;
                 btCancelar.Text = "Fechar";
                 btCancelar.Focus();
@@ -75,7 +72,7 @@ namespace View
                     usuario.LoginUsuario = txtUsuario.Text;
                     usuario.SenhaUsuario = txtSenha.Text;
                     usuario.AtivoUsuario = chkAtivo.Checked;
-                    usuario.AmbienteAdmUsuario = chkAdm.Checked;
+                    usuario.PerfilUsuario.IdPerfilUsuario =
 
                     UsuarioController usuarioController = new UsuarioController();
 
@@ -105,7 +102,6 @@ namespace View
                 usuario.LoginUsuario = txtUsuario.Text;
                 usuario.SenhaUsuario = txtSenha.Text;
                 usuario.AtivoUsuario = chkAtivo.Checked;
-                usuario.AmbienteAdmUsuario = chkAdm.Checked;
 
                 UsuarioController usuarioController = new UsuarioController();
 

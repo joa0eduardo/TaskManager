@@ -103,6 +103,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Enumerador.cs" />
     <Compile Include="FrmTelaLogin.xaml.cs">
       <DependentUpon>FrmTelaLogin.xaml</DependentUpon>
     </Compile>

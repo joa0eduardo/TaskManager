@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ViewWPF"
         mc:Ignorable="d"
-        Title="FrmUsuarioCadastro" Height="450" Width="800">
-    <Grid>
-        
+        Title="Cadastro Usuário" Height="281" Width="348" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,0,44">
+        <TabControl HorizontalAlignment="Left" Height="209" VerticalAlignment="Top" Width="342" Margin="0,0,0,-11">
+            <TabItem Header="Dados Gerais">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Código:" HorizontalAlignment="Left" Margin="3,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbCodigo" Content="" HorizontalAlignment="Left" Margin="59,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Nome:" HorizontalAlignment="Left" Margin="3,37,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtNome" HorizontalAlignment="Left" Height="23" Margin="61,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" MaxLength="50"/>
+                    <Label Content="Usuário:" HorizontalAlignment="Left" Margin="3,65,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtLogin" HorizontalAlignment="Left" Height="23" Margin="61,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" MaxLength="20"/>
+                    <Label Content="Senha:" HorizontalAlignment="Left" Margin="3,93,0,0" VerticalAlignment="Top"/>
+                    <PasswordBox x:Name="txtSenha" HorizontalAlignment="Left" Height="23" Margin="61,96,0,0" VerticalAlignment="Top" Width="105" MaxLength="100"/>
+                    <CheckBox x:Name="chkAtivo" Content="Ativo" HorizontalAlignment="Left" Margin="61,141,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                    <Button Content="Test" HorizontalAlignment="Left" Margin="261,0,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Parâmetros">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="lbPerfil" Content="Perfil:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="cmbPerfil" HorizontalAlignment="Left" Margin="54,14,0,0" VerticalAlignment="Top" Width="120" Loaded="CmbPerfil_Loaded" DisplayMemberPath="{Binding NomePerfilUsuario}" SelectedItem="{Binding Path=PerfilUsuario}" SelectedValue="{Binding Path=PerfilUsuario.IdPerfilUsuario}" SelectedValuePath="IdPerfilUsuario">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding NomePerfilUsuario}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="173,214,0,-36" VerticalAlignment="Top" Width="75" Click="BtSalvar_Click"/>
+        <Button x:Name="btFechar" Content="Fechar" HorizontalAlignment="Left" Margin="253,214,0,-36" VerticalAlignment="Top" Width="75" Click="BtFechar_Click"/>
+        <Label x:Name="lbAviso" Content="" HorizontalAlignment="Left" Height="31" Margin="0,214,0,-37" VerticalAlignment="Top" Width="155" Foreground="#FFC70000"/>
     </Grid>
 </Window>
