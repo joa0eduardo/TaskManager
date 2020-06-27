@@ -70,5 +70,20 @@ namespace ViewWPF
                 AtualizarGrid();
             }
         }
+
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuarioSelecionado = (dataGridUsuario.SelectedItems[0] as Usuario);
+
+            FrmUsuarioCadastro frmUsuarioCadastro = new FrmUsuarioCadastro(Enumerador.Alterar, usuarioSelecionado);
+
+            bool? dialogResult = frmUsuarioCadastro.ShowDialog();
+
+            if (dialogResult == true)
+            {
+                AtualizarGrid();
+            }
+
+        }
     }
 }

@@ -44,7 +44,9 @@ namespace ViewWPF
 
                 if (retornoValidacao.Equals(1))
                 {
+
                     this.DialogResult = true;
+
                 }
             }
             catch (Exception)

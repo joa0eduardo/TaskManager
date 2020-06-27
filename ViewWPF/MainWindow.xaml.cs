@@ -25,20 +25,20 @@ namespace ViewWPF
         public MainWindow()
         {
             InitializeComponent();
-            /*  COMENTADO PARA NÃO PEDIR LOGIN POR ENQUANTO
+            /*  COMENTADO PARA NÃO PEDIR LOGIN POR ENQUANTO*/
             FrmTelaLogin frmTelaLogin = new FrmTelaLogin();
+            LoginController loginController = new LoginController();
 
             bool? dialogResult = frmTelaLogin.ShowDialog();
 
             if (dialogResult == true)
             {
                 frmTelaLogin.Close();
-
             }
             else
             {
                 this.Close();
-            }*/
+            }
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -58,6 +58,16 @@ namespace ViewWPF
             }
         }
 
+        private void MenuItemPerfil_Click(object sender, RoutedEventArgs e)
+        {
+            FrmPerfilUsuarioSelecao frmPerfilUsuarioSelecao = new FrmPerfilUsuarioSelecao();
 
+            bool? dialogResult = frmPerfilUsuarioSelecao.ShowDialog();
+
+            if (dialogResult == true)
+            {
+                frmPerfilUsuarioSelecao.Close();
+            }
+        }
     }
 }

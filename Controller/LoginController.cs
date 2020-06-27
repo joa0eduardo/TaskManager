@@ -30,29 +30,22 @@ namespace Controller
             }
         }
 
-        public UsuarioColecao DadosUsuarioLogado (string login)
+        public Usuario DadosUsuarioLogado (string login)
         {
             try
             {
-                UsuarioColecao usuarioColecao = new UsuarioColecao();
+                Usuario usuario = new Usuario();
 
                 sqlServer.LimparParametros();
                 sqlServer.AdicionarParametros("@USU_Login", login);
 
-                DataTable dataTableUsuarioLogado = sqlServer.ExecutarConsulta(CommandType.StoredProcedure, "USUARIO_LOGADO_CONSULTAR");
+                DataSet dataTableUsuarioLogado = sqlServer.BuscarDados(CommandType.StoredProcedure, "USUARIO_LOGADO_CONSULTAR");
 
-                foreach (DataRow linha in dataTableUsuarioLogado.Rows)
-                {
-                    Usuario usuario = new Usuario();
+                usuario.IdUsuario = Convert.ToInt32("USU_Tid");
+                usuario.NomeUsuario = Convert.ToString("USU_Nome");
+                usuario.PerfilUsuario.IdPerfilUsuario = Convert.ToInt32("USU_PFU_TidPerfilUsuario");
 
-                    usuario.IdUsuario = Convert.ToInt32(linha["USU_Tid"]);
-                    usuario.NomeUsuario = Convert.ToString(linha["USU_Nome"]);
-                    usuario.LoginUsuario = Convert.ToString(linha["USU_Login"]);
-
-                    usuarioColecao.Add(usuario);
-                }
-
-                return usuarioColecao;
+                return usuario;
             }
             catch (Exception ex)
             {

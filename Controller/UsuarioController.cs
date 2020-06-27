@@ -43,7 +43,7 @@ namespace Controller
                 sQLServer.AdicionarParametros("@USU_Login", usuario.LoginUsuario);
                 sQLServer.AdicionarParametros("@USU_Senha", usuario.SenhaUsuario);
                 sQLServer.AdicionarParametros("@USU_Ativo", usuario.AtivoUsuario);
-                sQLServer.AdicionarParametros("@USU_PFU_TidUsuarioPerfil", usuario.PerfilUsuario.IdPerfilUsuario);
+                sQLServer.AdicionarParametros("@USU_PFU_TidPerfilUsuario", usuario.PerfilUsuario.IdPerfilUsuario);
                 string IdUsuario = sQLServer.ExecutarManipulacao(CommandType.StoredProcedure, "USUARIO_ALTERAR").ToString();
                 return IdUsuario;
             }
@@ -78,12 +78,13 @@ namespace Controller
                 foreach (DataRow linha in dataTableUsuario.Rows)
                 {
                     Usuario usu = new Usuario();
+                    usu.PerfilUsuario = new PerfilUsuario();
 
                     usu.IdUsuario = Convert.ToInt32(linha["USU_Tid"]);
                     usu.NomeUsuario = Convert.ToString(linha["USU_Nome"]);
                     usu.LoginUsuario = Convert.ToString(linha["USU_Login"]);
                     usu.AtivoUsuario = Convert.ToBoolean(linha["USU_Ativo"]);
-                    usu.PerfilUsuario.IdPerfilUsuario = Convert.ToString(linha["PFU_Nome"]); //FALTA ARRUMAR
+                    usu.PerfilUsuario.NomePerfilUsuario = Convert.ToString(linha["PFU_Nome"]);
 
                     usuarioColecao.Add(usu);
                 }
@@ -97,6 +98,42 @@ namespace Controller
                 throw new Exception("Não foi possível consultar os usuários. Detalhes:" + ex.Message);
             }
 
+        }
+
+        public UsuarioColecao ConsultarUsuario(int id)
+        {
+            try
+            {
+
+                UsuarioColecao usuarioColecao = new UsuarioColecao();
+
+                sQLServer.AdicionarParametros("@USU_Tid", id);
+                sQLServer.AdicionarParametros("@USU_Ativo", true);
+
+                DataTable dataTableUsuario = sQLServer.ExecutarConsulta(CommandType.StoredProcedure, "USUARIO_CONSULTAR");
+
+                foreach (DataRow linha in dataTableUsuario.Rows)
+                {
+                    Usuario usu = new Usuario();
+                    usu.PerfilUsuario = new PerfilUsuario();
+
+                    usu.IdUsuario = Convert.ToInt32(linha["USU_Tid"]);
+                    usu.NomeUsuario = Convert.ToString(linha["USU_Nome"]);
+                    usu.LoginUsuario = Convert.ToString(linha["USU_Login"]);
+                    usu.AtivoUsuario = Convert.ToBoolean(linha["USU_Ativo"]);
+                    usu.PerfilUsuario.IdPerfilUsuario = Convert.ToInt32(linha["USU_PFU_TidPerfilUsuario"]);
+
+                    usuarioColecao.Add(usu);
+                }
+
+                return usuarioColecao;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Não foi possível consultar os usuários. Detalhes:" + ex.Message);
+            }
         }
  
     }

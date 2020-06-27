@@ -16,10 +16,13 @@
             <MenuItem Header="Cadastro" Height="31">
                 <MenuItem Header="Usuário">
                     <MenuItem Header="Usuário" Click="MenuItemUsuario_Click"/>
-                    <MenuItem Header="Perfil"/>
+                    <MenuItem Header="Perfil" Click="MenuItemPerfil_Click"/>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Sair" Click="MenuItem_Click"/>
+            <MenuItem x:Name="menuUsuarioLogado" Header="" HorizontalAlignment="Right">
+                <MenuItem Header="Alterar Senha"/>
+            </MenuItem>
         </Menu>
         <GroupBox Header="Tempo Total DD/MM/AAAA" HorizontalAlignment="Left" Height="100" Margin="758,36,0,0" VerticalAlignment="Top" Width="170"/>
         <Label Content="00:00" HorizontalAlignment="Left" Margin="784,56,0,0" VerticalAlignment="Top" FontSize="45"/>

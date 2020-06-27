@@ -38,24 +38,12 @@ namespace ViewWPF
                 this.Title = "Alterar usuário";
                 this.lbCodigo.Content = usuario.IdUsuario.ToString();
                 this.txtNome.Text = usuario.NomeUsuario.ToString();
-                this.txtLogin.Text = usuario.LoginUsuario;
+                this.txtLogin.Text = usuario.LoginUsuario.ToString();
                 this.chkAtivo.IsChecked = usuario.AtivoUsuario;
+                this.cmbPerfil.SelectedItem = usuario.PerfilUsuario.NomePerfilUsuario.ToString();
 
                 txtLogin.IsEnabled = false;
             }
-            else if ((enumerador.Equals(Enumerador.Consultar)))
-            {
-                this.Title = "Consultar usuário";
-                this.lbCodigo.Content = usuario.IdUsuario.ToString();
-                this.txtNome.Text = usuario.NomeUsuario.ToString();
-                this.txtLogin.Text = usuario.LoginUsuario;
-                this.chkAtivo.IsChecked = usuario.AtivoUsuario;
-
-                txtNome.IsEnabled = false;
-                txtLogin.IsEnabled = false;
-                chkAtivo.IsEnabled = false;
-            }
-
         }
 
         private void BtFechar_Click(object sender, RoutedEventArgs e)
@@ -67,9 +55,8 @@ namespace ViewWPF
         {
 
             if (String.IsNullOrEmpty(txtNome.Text) 
-                || String.IsNullOrEmpty(txtSenha.Password) 
                 || String.IsNullOrEmpty(txtLogin.Text)
-                || String.IsNullOrEmpty(cmbPerfil.SelectedValue.ToString()))
+                || cmbPerfil.SelectedItem == null)
             {
                 lbAviso.Content = "* Campos obrigatórios.";
 
@@ -80,15 +67,6 @@ namespace ViewWPF
                 else
                 {
                     txtNome.BorderBrush = new SolidColorBrush(Colors.LightGray);
-                }
-
-                if (String.IsNullOrEmpty(txtSenha.Password))
-                {
-                    txtSenha.BorderBrush = new SolidColorBrush(Colors.Red);
-                }
-                else
-                {
-                    txtSenha.BorderBrush = new SolidColorBrush(Colors.LightGray);
                 }
 
                 if (String.IsNullOrEmpty(txtLogin.Text))
@@ -138,7 +116,7 @@ namespace ViewWPF
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Não foi possível cadastrar o usuário. Detalhes:" + retorno, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Não foi possível cadastrar o usuário. Detalhes: " + retorno, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
 
                         this.DialogResult = true;
                     }
@@ -146,13 +124,14 @@ namespace ViewWPF
                 else if (enumeradorSelecionado.Equals(Enumerador.Alterar))
                 {
                     Usuario usuario = new Usuario();
-                    PerfilUsuario perfilUsuario = new PerfilUsuario();
+                    usuario.PerfilUsuario = new PerfilUsuario();
 
+                    usuario.IdUsuario = Convert.ToInt32(lbCodigo.Content);
                     usuario.NomeUsuario = txtNome.Text;
                     usuario.LoginUsuario = txtLogin.Text;
                     usuario.SenhaUsuario = txtSenha.Password;
                     usuario.AtivoUsuario = chkAtivo.IsChecked == true;
-                    perfilUsuario.IdPerfilUsuario = Convert.ToInt32(cmbPerfil.SelectedValue);
+                    usuario.PerfilUsuario.IdPerfilUsuario = Convert.ToInt32(cmbPerfil.SelectedValue);
 
                     UsuarioController usuarioController = new UsuarioController();
 
@@ -177,19 +156,34 @@ namespace ViewWPF
             }
         }
 
+
         private void CmbPerfil_Loaded(object sender, RoutedEventArgs e)
         {
             PerfilUsuarioColecao perfilUsuarioColecao = new PerfilUsuarioColecao();
             PerfilUsuarioController perfilUsuarioController = new PerfilUsuarioController();
+            Usuario usuario = new Usuario();
+            usuario.PerfilUsuario = new PerfilUsuario();
 
-            if (cmbPerfil.SelectedValue == null)
+            if (enumeradorSelecionado == Enumerador.Alterar)
+            {
+                perfilUsuarioColecao = perfilUsuarioController.ComboBoxConsultar(true);
+
+                cmbPerfil.ItemsSource = perfilUsuarioColecao;
+
+                if (cmbPerfil.SelectedItem == null)
+                {
+                    cmbPerfil.SelectedValue = usuario.PerfilUsuario.NomePerfilUsuario;
+                }
+                
+            }
+
+            if (enumeradorSelecionado == Enumerador.Inserir)
             {
                 perfilUsuarioColecao = perfilUsuarioController.ComboBoxConsultar(true);
 
                 cmbPerfil.ItemsSource = null;
                 cmbPerfil.ItemsSource = perfilUsuarioColecao;
             }
-
 
         }
 

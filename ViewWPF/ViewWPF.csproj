@@ -62,6 +62,9 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>taskmanagerlogo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -83,15 +86,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Cadastro\Usuario\FrmPerfilUsuarioCadastro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cadastro\Usuario\FrmPerfilUsuarioSelecao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmTelaLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FrmUsuarioCadastro.xaml">
+    <Page Include="Cadastro\Usuario\FrmUsuarioCadastro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FrmUsuarioSelecao.xaml">
+    <Page Include="Cadastro\Usuario\FrmUsuarioSelecao.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,14 +114,20 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Cadastro\Usuario\FrmPerfilUsuarioCadastro.xaml.cs">
+      <DependentUpon>FrmPerfilUsuarioCadastro.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Enumerador.cs" />
+    <Compile Include="Cadastro\Usuario\FrmPerfilUsuarioSelecao.xaml.cs">
+      <DependentUpon>FrmPerfilUsuarioSelecao.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FrmTelaLogin.xaml.cs">
       <DependentUpon>FrmTelaLogin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FrmUsuarioCadastro.xaml.cs">
+    <Compile Include="Cadastro\Usuario\FrmUsuarioCadastro.xaml.cs">
       <DependentUpon>FrmUsuarioCadastro.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FrmUsuarioSelecao.xaml.cs">
+    <Compile Include="Cadastro\Usuario\FrmUsuarioSelecao.xaml.cs">
       <DependentUpon>FrmUsuarioSelecao.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -166,6 +183,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="taskmanagerlogo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\perfilusuarioselecao.ico" />
+    <Resource Include="Icons\taskmanagerlogo.ico" />
+    <Resource Include="Icons\usuario.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

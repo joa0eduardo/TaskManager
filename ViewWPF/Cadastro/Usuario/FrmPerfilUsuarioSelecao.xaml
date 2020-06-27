@@ -1,23 +1,29 @@
-﻿<Window x:Name="FrmUsuarioSelecao1" x:Class="ViewWPF.FrmUsuarioSelecao"
+﻿<Window x:Class="ViewWPF.FrmPerfilUsuarioSelecao"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ViewWPF"
         mc:Ignorable="d"
-        Title="Seleção de Usuário" Height="461" Width="807" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="C:\Users\joa0e\source\repos\TaskManager\Icons\korganizer_task_tasks_list_9500.ico">
+        Title="Perfil Usuário" Height="461" Width="807" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="..\..\Icons\perfilusuarioselecao.ico" >
     <Grid>
         <Label Content="Código:" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top"/>
         <Label Content="Nome:" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtCodigo" HorizontalAlignment="Left" Height="23" Margin="68,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="txtNome" HorizontalAlignment="Left" Height="23" Margin="68,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="428"/>
         <CheckBox x:Name="chkAtivo" Content="Ativo" HorizontalAlignment="Left" Margin="511,67,0,0" VerticalAlignment="Top" IsChecked="True"/>
-        <DataGrid x:Name="dataGridUsuario" HorizontalAlignment="Left" Height="247" Margin="10,133,0,0" VerticalAlignment="Top" Width="774" SelectionMode="Single">
+        <DataGrid x:Name="dataGridPerfilUsuario" CanUserAddRows="False" HorizontalAlignment="Left" Height="247" Margin="10,133,0,0" VerticalAlignment="Top" Width="774" SelectionMode="Single" AlternationCount="2" RowBackground="LightCyan" AlternatingRowBackground="White" SelectedItem="{Binding Path=PerfilUsuario}" SelectedValue="{Binding Path=PerfilUsuario.IdPerfilUsuario}" SelectedValuePath="IdPerfilUsuario" >
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding IdUsuario}" Header="Código" Width="100" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding NomeUsuario}" Header="Nome" Width="500" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding PerfilUsuario.NomePerfilUsuario}" Header="Perfil" Width="100" IsReadOnly="True"/>
-                <DataGridCheckBoxColumn Binding="{Binding AtivoUsuario}" Header="Ativo" Width="60" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding IdPerfilUsuario}" Header="Código" Width="100" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding NomePerfilUsuario}" Header="Perfil" Width="550" IsReadOnly="True"/>
+                <DataGridCheckBoxColumn Binding="{Binding AtivoPerfilUsuario}" Header="Ativo" Width="60" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Editar" Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Button_Click">Editar</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btPesquisar" Content="Pesquisar" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" Width="75" Click="BtPesquisar_Click"/>
