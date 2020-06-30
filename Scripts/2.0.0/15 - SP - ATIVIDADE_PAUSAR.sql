@@ -1,0 +1,55 @@
+CREATE PROCEDURE ATIVIDADE_PAUSAR
+
+	@ATV_Tid INTEGER,
+	@ATV_USU_TidUsuario INTEGER
+
+AS
+BEGIN
+
+	DECLARE @ERRO VARCHAR(MAX)
+	DECLARE @ATV_Observacao VARCHAR(MAX)
+	DECLARE @ATV_DataHoraInicioOuReinicio DATETIME
+	DECLARE @ATV_DataHoraPausa DATETIME
+	DECLARE @ATV_TempoTotal TIME
+	DECLARE @MINUTOS INT
+
+	BEGIN TRY
+		BEGIN TRANSACTION
+
+				SELECT 
+					@ATV_DataHoraInicioOuReinicio = ISNULL(ATV_DataHoraReinicio,ATV_DataHoraInicio),
+					@ATV_DataHoraPausa = GETDATE(),
+					@ATV_TempoTotal = ATV_TempoTotal,
+					@MINUTOS = DATEDIFF(MINUTE,@ATV_DataHoraInicioOuReinicio,@ATV_DataHoraPausa)
+
+				FROM ATIVIDADE ATV
+
+				WHERE ATV.ATV_Tid = @ATV_Tid
+	
+				UPDATE ATIVIDADE
+				SET ATV_DataHoraPausa = @ATV_DataHoraPausa,
+					ATV_TempoTotal = DATEADD(MINUTE,@MINUTOS,@ATV_TempoTotal),
+					ATV_SAT_TidStatusAtividade = 3
+				
+				WHERE ATV_Tid = @ATV_Tid
+
+				SET @ATV_Observacao = CONCAT('Pausada a atividade de código ',@ATV_Tid,'.')
+
+				IF(@@ROWCOUNT >= 1)
+					EXEC LOG_ATIVIDADE_INSERIR @ATV_Tid, @ATV_USU_TidUsuario, @ATV_Observacao
+					SET @ATV_TempoTotal = (SELECT ATV_TempoTotal FROM ATIVIDADE WHERE ATV_Tid = @ATV_Tid)
+					EXEC USUARIO_TEMPO_DIA_ATUALIZAR @ATV_USU_TidUsuario, @ATV_TempoTotal
+
+		COMMIT TRANSACTION
+	END TRY
+	BEGIN CATCH
+
+		ROLLBACK TRANSACTION
+
+		SET @ERRO = ERROR_MESSAGE()
+
+		EXEC LOG_ERRO_INSERIR @ERRO, 'ATIVIDADE_PAUSAR'
+
+	END CATCH
+	
+END
