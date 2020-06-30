@@ -25,7 +25,7 @@ namespace ViewWPF
         public MainWindow()
         {
             InitializeComponent();
-            /*  COMENTADO PARA NÃO PEDIR LOGIN POR ENQUANTO*/
+            /*  COMENTADO PARA NÃO PEDIR LOGIN POR ENQUANTO
             FrmTelaLogin frmTelaLogin = new FrmTelaLogin();
             LoginController loginController = new LoginController();
 
@@ -38,7 +38,7 @@ namespace ViewWPF
             else
             {
                 this.Close();
-            }
+            }*/
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

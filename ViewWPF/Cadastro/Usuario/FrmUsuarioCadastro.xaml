@@ -35,10 +35,11 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
+                    <Button Content="Teste" Grid.Column="1" HorizontalAlignment="Left" Margin="210,36,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="173,214,0,-36" VerticalAlignment="Top" Width="75" Click="BtSalvar_Click"/>
+        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Left" Margin="173,214,0,-36" VerticalAlignment="Top" Width="75" Click="BtSalvar_Click" />
         <Button x:Name="btFechar" Content="Fechar" HorizontalAlignment="Left" Margin="253,214,0,-36" VerticalAlignment="Top" Width="75" Click="BtFechar_Click"/>
         <Label x:Name="lbAviso" Content="" HorizontalAlignment="Left" Height="31" Margin="0,214,0,-37" VerticalAlignment="Top" Width="155" Foreground="#FFC70000"/>
     </Grid>

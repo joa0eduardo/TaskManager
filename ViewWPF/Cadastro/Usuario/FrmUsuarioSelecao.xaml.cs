@@ -74,8 +74,11 @@ namespace ViewWPF
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuarioSelecionado = (dataGridUsuario.SelectedItems[0] as Usuario);
+            UsuarioController usuarioController = new UsuarioController();
 
-            FrmUsuarioCadastro frmUsuarioCadastro = new FrmUsuarioCadastro(Enumerador.Alterar, usuarioSelecionado);
+            Usuario usuario = usuarioController.ConsultarUsuario(usuarioSelecionado.IdUsuario);
+
+            FrmUsuarioCadastro frmUsuarioCadastro = new FrmUsuarioCadastro(Enumerador.Alterar, usuario);
 
             bool? dialogResult = frmUsuarioCadastro.ShowDialog();
 

@@ -40,7 +40,7 @@ namespace ViewWPF
                 this.txtNome.Text = usuario.NomeUsuario.ToString();
                 this.txtLogin.Text = usuario.LoginUsuario.ToString();
                 this.chkAtivo.IsChecked = usuario.AtivoUsuario;
-                this.cmbPerfil.SelectedItem = usuario.PerfilUsuario.NomePerfilUsuario.ToString();
+                this.cmbPerfil.SelectedValue = usuario.PerfilUsuario.IdPerfilUsuario;
 
                 txtLogin.IsEnabled = false;
             }
@@ -191,7 +191,11 @@ namespace ViewWPF
         {
             if (cmbPerfil.SelectedItem == null)
             {
-                MessageBox.Show("0");
+                Usuario usuario = new Usuario();
+                usuario.PerfilUsuario = new PerfilUsuario();
+
+                MessageBox.Show(usuario.PerfilUsuario.NomePerfilUsuario.ToString());
+
             }
             else
             {

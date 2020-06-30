@@ -100,39 +100,36 @@ namespace Controller
 
         }
 
-        public UsuarioColecao ConsultarUsuario(int id)
+        public Usuario ConsultarUsuario(int id)
         {
             try
             {
 
-                UsuarioColecao usuarioColecao = new UsuarioColecao();
+                Usuario usuario = new Usuario();
 
                 sQLServer.AdicionarParametros("@USU_Tid", id);
                 sQLServer.AdicionarParametros("@USU_Ativo", true);
 
                 DataTable dataTableUsuario = sQLServer.ExecutarConsulta(CommandType.StoredProcedure, "USUARIO_CONSULTAR");
+ 
+                usuario.PerfilUsuario = new PerfilUsuario();
 
                 foreach (DataRow linha in dataTableUsuario.Rows)
                 {
-                    Usuario usu = new Usuario();
-                    usu.PerfilUsuario = new PerfilUsuario();
-
-                    usu.IdUsuario = Convert.ToInt32(linha["USU_Tid"]);
-                    usu.NomeUsuario = Convert.ToString(linha["USU_Nome"]);
-                    usu.LoginUsuario = Convert.ToString(linha["USU_Login"]);
-                    usu.AtivoUsuario = Convert.ToBoolean(linha["USU_Ativo"]);
-                    usu.PerfilUsuario.IdPerfilUsuario = Convert.ToInt32(linha["USU_PFU_TidPerfilUsuario"]);
-
-                    usuarioColecao.Add(usu);
+                    usuario.IdUsuario = Convert.ToInt32("USU_Tid");
+                    usuario.NomeUsuario = Convert.ToString("USU_Nome");
+                    usuario.LoginUsuario = Convert.ToString("USU_Login");
+                    usuario.AtivoUsuario = Convert.ToBoolean("USU_Ativo");
+                    usuario.PerfilUsuario.IdPerfilUsuario = Convert.ToInt32("USU_PFU_TidPerfilUsuario");
                 }
 
-                return usuarioColecao;
+                return usuario;
 
             }
             catch (Exception ex)
             {
 
-                throw new Exception("Não foi possível consultar os usuários. Detalhes:" + ex.Message);
+                throw new Exception("Não foi possível consultar os usuários. Detalhes: " + ex.Message);
             }
         }
  
