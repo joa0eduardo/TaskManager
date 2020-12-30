@@ -100,30 +100,34 @@ namespace Controller
 
         }
 
-        public Usuario ConsultarUsuario(int id)
+        public UsuarioColecao ConsultarUsuario(int id)
         {
             try
             {
 
-                Usuario usuario = new Usuario();
+                UsuarioColecao usuarioColecao = new Usuario();
 
                 sQLServer.AdicionarParametros("@USU_Tid", id);
                 sQLServer.AdicionarParametros("@USU_Ativo", true);
 
                 DataTable dataTableUsuario = sQLServer.ExecutarConsulta(CommandType.StoredProcedure, "USUARIO_CONSULTAR");
+
+                Usuario usuario = new Usuario();
  
                 usuario.PerfilUsuario = new PerfilUsuario();
 
-                foreach (DataRow linha in dataTableUsuario.Rows)
+                for (int i = 0; i < dataTableUsuario.Rows.Count; i++)
                 {
                     usuario.IdUsuario = Convert.ToInt32("USU_Tid");
                     usuario.NomeUsuario = Convert.ToString("USU_Nome");
                     usuario.LoginUsuario = Convert.ToString("USU_Login");
                     usuario.AtivoUsuario = Convert.ToBoolean("USU_Ativo");
                     usuario.PerfilUsuario.IdPerfilUsuario = Convert.ToInt32("USU_PFU_TidPerfilUsuario");
+
+                    usuarioColecao.Add(usuario);
                 }
 
-                return usuario;
+                return usuarioColecao;
 
             }
             catch (Exception ex)

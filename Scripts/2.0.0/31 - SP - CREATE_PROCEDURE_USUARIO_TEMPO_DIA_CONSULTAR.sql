@@ -1,0 +1,22 @@
+CREATE PROCEDURE USUARIO_TEMPO_DIA_CONSULTAR  
+  
+ @UTD_USU_TidUsuario INT,  
+ @UTD_DataInicio DATETIME,  
+ @UTD_DataFinal DATETIME  
+  
+AS  
+BEGIN  
+  
+ SELECT  
+    
+  USU.USU_Tid,  
+  USU.USU_Nome,  
+  UTD.UTD_TempoTotalDia  
+  
+ FROM USUARIO_TEMPO_DIA UTD  
+ INNER JOIN USUARIO USU ON USU.USU_Tid = UTD.UTD_USU_TidUsuario  
+  
+ WHERE UTD.UTD_USU_TidUsuario = @UTD_USU_TidUsuario  
+ AND CONVERT(DATE,UTD_DataAtividade) BETWEEN CONVERT(DATE,@UTD_DataInicio) AND CONVERT(DATE,@UTD_DataFinal)  
+  
+END

@@ -76,9 +76,11 @@ namespace ViewWPF
             Usuario usuarioSelecionado = (dataGridUsuario.SelectedItems[0] as Usuario);
             UsuarioController usuarioController = new UsuarioController();
 
-            Usuario usuario = usuarioController.ConsultarUsuario(usuarioSelecionado.IdUsuario);
+            UsuarioColecao usuarioColecao = new UsuarioColecao();
+            
+           // usuarioColecao = usuarioController.ConsultarUsuario(usuarioSelecionado.IdUsuario); 
 
-            FrmUsuarioCadastro frmUsuarioCadastro = new FrmUsuarioCadastro(Enumerador.Alterar, usuario);
+            FrmUsuarioCadastro frmUsuarioCadastro = new FrmUsuarioCadastro(Enumerador.Alterar, usuarioSelecionado);
 
             bool? dialogResult = frmUsuarioCadastro.ShowDialog();
 
